@@ -1,0 +1,26 @@
+project modules:
+1) global chat
+2) private chat
+3) group
+
+global chat:
+1) when a user joins, will prompt for name, then the name will display at the sidebar
+2) user can chat below, and the message will be displayed in the global chat
+3) when a user joins, they will be asked the same as 1, and everyone will be notified by their joining
+4) when a user starts typing, the other users can see that user is typing
+5) when a user enters a message, the name of the sender will be displayed as "ME:", when other users see it, they will see it as their name
+
+private chat
+1) when a user joins, their name appears in the sidebar, in the sidebar, they will see their name, along with a message that says, "You cant message yourself".
+2) if other user joins, other users can see can see the newly joined user's name, and a button appears beside the name, "Message this user"
+3) when the button is clicked, a new section appears, saying "Private message between the user clicking the button, and the other user the user is trying to message"
+4) when message is typed, the message can only be seen by the 2 users
+
+group
+1) when "Create new group" is clicked, a pop up appears, asking for group name
+2) on entering, the user will be directed to a new page, with a randomly generated url like so, "http://localhost:8080/privgroup/{group_name}/random_uuid"
+3)  when the user enters the group, their name will be displayed at the sidebar as well
+4) when a user visit the link, they will be prompted with a name, and they will join the group once they enter their name
+5) users can send message like usual
+6) user can also leave the group by clicking the "leave group" button
+7) on clicking, user will be prompted "Do you want to leave group?", if yes, user will leavef the group, and people in the group will be notified, if not, the user will be sent a prompt, saying, "great, enjoy your stay then"

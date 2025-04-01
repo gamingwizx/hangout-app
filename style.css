@@ -1,0 +1,72 @@
+:root {
+    --spacing: 1em;
+    --primary: #3D5A80;   /* Deep Blue-Gray */
+    --secondary: #98C1D9; /* Soft Sky Blue */
+    --accent: #EE6C4D;    /* Warm Sunset Orange */
+    --background: #E0FBFC; /* Pale Cyan */
+    --text: #293241;      /* Dark Navy */
+}
+*,*::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    color: var(--text);
+}
+html, body {
+    background-color: var(--primary);
+    height: 100%;
+}
+.container-parent {
+    width: 80rem;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+}
+.container {
+    width: 80%;
+
+}
+.container__home {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: 1fr 5fr;
+    grid-template-areas: 
+    "header header"
+    "chat sidebar";
+    padding: var(--spacing);
+
+}
+.header {
+    height: 100%;
+    grid-area: header;
+}
+.chat {
+    grid-area: chat;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 10fr 1fr;
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+    "chat-area" 
+    "chat-box";
+}
+.sidebar {
+    height: 100%;
+    grid-area: sidebar;
+    background-color: var(--secondary);
+}
+.chat-box {
+    padding: calc(var(--spacing) / 2);
+    width: 100%;
+    grid-area: chat-box;
+    display: grid;
+    grid-template-columns: 5fr 1fr;
+    gap: var(--spacing);
+    background-color: var(--accent);
+
+}
+.chat-area {
+    padding: var(--spacing);
+    grid-area: chat-area;
+    background-color: var(--background);
+    width: 100%;
+}
