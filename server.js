@@ -20,10 +20,22 @@ const io = new Server(server, {
     }
 });
 
+const usersList = new Map()
+
 io.on("connection", (socket) => {
     socket.on("User joined", (username, ack) => {
         socket.join("global")
-        ack("User joined response", username)
+        usersList.set(socket.id, username)
+        console.log(usersList)
+        ack({message: `User ${username} has joined global chat`, usernameResponse: username, usersList: 
+            JSON.stringify(
+                Array.from(usersList, ([key, value]) => ({[key]: value}))
+            )
+        })
+    })
+
+    socket.on("disconnect", () => {
+        usersList.delete(socket.id)
     })
 })
 
