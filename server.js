@@ -23,19 +23,37 @@ const io = new Server(server, {
 const usersList = new Map()
 
 io.on("connection", (socket) => {
-    socket.on("User joined", (username, ack) => {
+    socket.on("User joined", (username) => {
         socket.join("global")
         usersList.set(socket.id, username)
         console.log(usersList)
-        ack({message: `User ${username} has joined global chat`, usernameResponse: username, usersList: 
+        socket.broadcast.emit("User joined broadcast", {message: `User ${username} has joined global chat`})
+        io.emit("User joined update list", {usernameResponse: username, usersList: 
             JSON.stringify(
                 Array.from(usersList, ([key, value]) => ({[key]: value}))
             )
         })
     })
 
+    socket.on("send message to global chat", (chatContentObj) => {
+        io.emit("receive message in global chat", chatContentObj);
+    })
+
     socket.on("disconnect", () => {
         usersList.delete(socket.id)
+    })
+
+    socket.on("user typing", (username) => {
+        io.emit("user typing response", {username})
+    })
+
+    socket.on("send message to private chat", (chatObject) => {
+        const {
+            sender,
+            receiver,
+            chatContent
+        } = chatObject
+        socket.to(receiver).emit("receive message to private chat", {sender, chatContent})
     })
 })
 

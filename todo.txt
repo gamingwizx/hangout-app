@@ -4,11 +4,11 @@ project modules:
 3) group
 
 global chat:
-1) when a user joins, will prompt for name, then the name will display at the sidebar
-2) user can chat below, and the message will be displayed in the global chat
-3) when a user joins, they will be asked the same as 1, and everyone will be notified by their joining
-4) when a user starts typing, the other users can see that user is typing
-5) when a user enters a message, the name of the sender will be displayed as "ME:", when other users see it, they will see it as their name
+1) when a user joins, will prompt for name, then the name will display at the sidebar /
+2) user can chat below, and the message will be displayed in the global chat /
+3) when a user joins, they will be asked the same as 1, and everyone will be notified by their joining /
+4) when a user starts typing, the other users can see that user is typing /
+5) when a user enters a message, the name of the sender will be displayed as "ME:", when other users see it, they will see it as their name /
 
 private chat
 1) when a user joins, their name appears in the sidebar, in the sidebar, they will see their name, along with a message that says, "You cant message yourself".

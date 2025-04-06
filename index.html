@@ -16,24 +16,50 @@
             </div>
             <div class="sidebar">
                 Online Users:
+                <div class="sidebar-list"></div>
             </div>
             <div class="chat">
-                <div class="chat-area">
-                    <h2>Start Chatting!</h2>
+                <div class="chat-area chat-area__global">
+                    <h2 class="chat-area-title">Start Chatting!</h2>
+                    <label class="is-typing">User is chatting...</label>
                 </div>
-                <form class="chat-box">
-                    <input/>
-                    <button>Submit</button>
+                <div class="chat-area chat-area__private">
+                    <div class="chat-area-title__private-container">
+                        <button class="back-to-global">←</button>
+                        <h2 class="chat-area-title chat-area-title__private">Start Chatting!</h2>
+                    </div>
+                    <label class="is-typing">User is chatting...</label>
+                </div>
+                <form class="chat-box chat-box__global">
+                    <input class="chat-content"/>
+                    <button type="submit">Submit</button>
+                </form>
+                <form class="chat-box chat-box__private">
+                    <input class="chat-content"/>
+                    <button type="submit">Submit</button>
                 </form>
             </div>
         </div>
     </div>
     <template id="user-user-list">
-        <label class="user-list-name">John Doe</label>
+        <div class="user-block">
+            <label class="user-list-name">John Doe</label>
+            <button class="user-list-button">Message</button>
+        </div>
     </template>
     <template id="user">
-        <label class="global-chat-user-name"></label>
-        <label class="global-chat-user-message"></label>
+        <div class="user-chat-message">
+            <label class="global-chat-user-name"></label>
+            <label class="global-chat-user-message"></label>
+        </div>
     </template>
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h2 class="modal-title">New Message from Glare!</h2>
+          <p class="modal-message">Message: Hello!</p>
+        </div>
+      </div>
+      <button id="myBtn">Open Modal</button>
 </body>
 </html>
